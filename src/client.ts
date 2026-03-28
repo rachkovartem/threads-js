@@ -1,4 +1,13 @@
+import {
+  buildAuthUrl,
+  exchangeCode,
+  exchangeLongLivedToken,
+  refreshToken,
+} from './auth';
 import { ThreadsApiError } from './errors';
+import { PostsResource } from './resources/posts';
+import { RepliesResource } from './resources/replies';
+import { UsersResource } from './resources/users';
 import type { RateLimit, ThreadsClientConfig, ThreadsResponse } from './types';
 
 const DEFAULT_BASE_URL = 'https://graph.threads.net';
@@ -6,16 +15,29 @@ const DEFAULT_API_VERSION = 'v1.0';
 const DEFAULT_MAX_RETRIES = 3;
 
 export class ThreadsClient {
+  readonly posts: PostsResource;
+  readonly replies: RepliesResource;
+  readonly users: UsersResource;
+
   private readonly accessToken: string;
   private readonly baseUrl: string;
   private readonly apiVersion: string;
   private readonly maxRetries: number;
+
+  static buildAuthUrl = buildAuthUrl;
+  static exchangeCode = exchangeCode;
+  static exchangeLongLivedToken = exchangeLongLivedToken;
+  static refreshToken = refreshToken;
 
   constructor(config: ThreadsClientConfig) {
     this.accessToken = config.accessToken;
     this.baseUrl = config.baseUrl ?? DEFAULT_BASE_URL;
     this.apiVersion = config.apiVersion ?? DEFAULT_API_VERSION;
     this.maxRetries = config.maxRetries ?? DEFAULT_MAX_RETRIES;
+
+    this.posts = new PostsResource(this);
+    this.replies = new RepliesResource(this);
+    this.users = new UsersResource(this);
   }
 
   async get<T>(path: string, params?: Record<string, string>): Promise<ThreadsResponse<T>> {

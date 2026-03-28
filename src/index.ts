@@ -1,1 +1,27 @@
-export const VERSION = '0.1.0';
+export { ThreadsClient } from './client';
+export { ThreadsApiError } from './errors';
+export type {
+  AccessTokenResponse,
+  BuildAuthUrlParams,
+  CarouselChild,
+  ContainerStatus,
+  CreateCarouselPostParams,
+  CreateImagePostParams,
+  CreatePostParams,
+  CreateReplyParams,
+  CreateTextPostParams,
+  CreateVideoPostParams,
+  ExchangeCodeParams,
+  ListPostsParams,
+  ListRepliesParams,
+  MediaType,
+  PaginatedResponse,
+  Post,
+  RateLimit,
+  RefreshTokenParams,
+  Reply,
+  ReplyControl,
+  ThreadsClientConfig,
+  ThreadsResponse,
+  User,
+} from './types';
