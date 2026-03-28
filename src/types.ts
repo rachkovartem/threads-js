@@ -32,9 +32,12 @@ export interface PaginatedResponse<T> {
 
 // --- Media Types ---
 
-export type MediaType = 'TEXT' | 'IMAGE' | 'VIDEO' | 'CAROUSEL';
+export type MediaType = "TEXT" | "IMAGE" | "VIDEO" | "CAROUSEL";
 
-export type ReplyControl = 'everyone' | 'accounts_you_follow' | 'mentioned_only';
+export type ReplyControl =
+  | "everyone"
+  | "accounts_you_follow"
+  | "mentioned_only";
 
 // --- Posts ---
 
@@ -46,26 +49,26 @@ export interface CreateTextPostParams {
 
 export interface CreateImagePostParams {
   text?: string;
-  mediaType: 'IMAGE';
+  mediaType: "IMAGE";
   mediaUrl: string;
   replyControl?: ReplyControl;
 }
 
 export interface CreateVideoPostParams {
   text?: string;
-  mediaType: 'VIDEO';
+  mediaType: "VIDEO";
   mediaUrl: string;
   replyControl?: ReplyControl;
 }
 
 export interface CarouselChild {
-  mediaType: 'IMAGE' | 'VIDEO';
+  mediaType: "IMAGE" | "VIDEO";
   mediaUrl: string;
 }
 
 export interface CreateCarouselPostParams {
   text?: string;
-  mediaType: 'CAROUSEL';
+  mediaType: "CAROUSEL";
   children: CarouselChild[];
   replyControl?: ReplyControl;
 }
@@ -99,7 +102,7 @@ export interface ListPostsParams {
 export interface CreateReplyParams {
   replyTo: string;
   text: string;
-  mediaType?: 'IMAGE' | 'VIDEO';
+  mediaType?: "IMAGE" | "VIDEO";
   mediaUrl?: string;
 }
 
@@ -116,7 +119,7 @@ export interface Reply {
   mediaUrl?: string;
   permalink?: string;
   timestamp?: string;
-  hideStatus?: 'NOT_HUSHED' | 'UNHUSHED' | 'HIDDEN';
+  hideStatus?: "NOT_HUSHED" | "UNHUSHED" | "HIDDEN";
 }
 
 // --- Users ---
@@ -157,7 +160,12 @@ export interface AccessTokenResponse {
 
 // --- Container Status (internal) ---
 
-export type ContainerStatus = 'IN_PROGRESS' | 'FINISHED' | 'ERROR' | 'EXPIRED' | 'PUBLISHED';
+export type ContainerStatus =
+  | "IN_PROGRESS"
+  | "FINISHED"
+  | "ERROR"
+  | "EXPIRED"
+  | "PUBLISHED";
 
 export interface ContainerStatusResponse {
   id: string;

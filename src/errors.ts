@@ -14,7 +14,7 @@ export class ThreadsApiError extends Error {
 
   constructor(params: ThreadsApiErrorParams) {
     super(params.message);
-    this.name = 'ThreadsApiError';
+    this.name = "ThreadsApiError";
     this.status = params.status;
     this.code = params.code;
     this.subcode = params.subcode;

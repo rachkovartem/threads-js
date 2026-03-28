@@ -1,5 +1,5 @@
-export { ThreadsClient } from './client';
-export { ThreadsApiError } from './errors';
+export { ThreadsClient } from "./client";
+export { ThreadsApiError } from "./errors";
 export type {
   AccessTokenResponse,
   BuildAuthUrlParams,
@@ -24,4 +24,4 @@ export type {
   ThreadsClientConfig,
   ThreadsResponse,
   User,
-} from './types';
+} from "./types";
