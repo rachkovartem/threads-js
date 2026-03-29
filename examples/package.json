@@ -1,0 +1,17 @@
+{
+  "name": "threads-kit-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx demo.ts",
+    "auth": "tsx auth-server.ts"
+  },
+  "dependencies": {
+    "threads-kit": "file:..",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "@types/express": "^5.0.0"
+  }
+}
