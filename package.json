@@ -1,5 +1,5 @@
 {
-  "name": "@rachkovartem/threads-js",
+  "name": "threads-kit",
   "version": "0.1.0",
   "description": "TypeScript SDK for the official Meta Threads API",
   "main": "dist/index.cjs",
