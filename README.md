@@ -1,24 +1,24 @@
-# threads-js
+# threads-kit
 
 TypeScript SDK for the official [Meta Threads API](https://developers.facebook.com/docs/threads). Zero dependencies. Full type safety.
 
 ## Install
 
 ```bash
-npm install threads-js
+npm install threads-kit
 ```
 
 ## Quick Start
 
 ```ts
-import { ThreadsClient } from 'threads-js';
+import { ThreadsClient } from 'threads-kit';
 
 const threads = new ThreadsClient({
   accessToken: 'your-access-token',
 });
 
 // Post to Threads
-const post = await threads.posts.create({ text: 'Hello from threads-js!' });
+const post = await threads.posts.create({ text: 'Hello from threads-kit!' });
 
 // Get your profile
 const me = await threads.users.me();
@@ -81,7 +81,7 @@ await threads.replies.unhide('reply_id');
 ## OAuth
 
 ```ts
-import { ThreadsClient } from 'threads-js';
+import { ThreadsClient } from 'threads-kit';
 
 // 1. Build authorization URL
 const authUrl = ThreadsClient.buildAuthUrl({
@@ -134,7 +134,7 @@ console.log(result.rateLimit);
 ## Error Handling
 
 ```ts
-import { ThreadsApiError } from 'threads-js';
+import { ThreadsApiError } from 'threads-kit';
 
 try {
   await threads.posts.create({ text: 'Hello!' });
